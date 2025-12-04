@@ -199,7 +199,7 @@ public class Main {
         }while (!error);
     }
     public static void opcioni() {
-        double suma = 0.0;;
+        double suma = 0.0;
         for (Double aDouble : lista) {
             suma += aDouble;
         }
