@@ -71,7 +71,7 @@ public class Main {
                         continuar = false;
                         error = false;
                     } else if (opcion.equalsIgnoreCase("si")) {
-                        System.out.println("---Nueva Alumno---");
+                        System.out.println("---Nuevo Alumno---");
                         error = false;
                     } else {
                         System.out.println("Opcion incorrecta");
