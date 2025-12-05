@@ -6,7 +6,7 @@ public class Main {
     public static Scanner sc = new Scanner(System.in);
     public static ArrayList<ArrayList<Integer>> notasAlumnos = new ArrayList<>();
     public static int notaProg = 0,  numeroAlumno = 0, contadorProg = 0;
-    public static String[] nombresAsignaturas = {"Programacion", "Entornos de Desarrollo", "Base de Datos", "Lenguaje de Marcas"};
+    public static String[] nombresAsignaturas = {"Programacion", "Entornos de Desarrollo", "Base de Datos", "Lenguaje de Marcas", "Digitalizacion"};
 
     public static void main(String[] args) {
         pedirNotas();
