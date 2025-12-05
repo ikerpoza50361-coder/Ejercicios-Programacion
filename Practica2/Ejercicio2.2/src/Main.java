@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -22,14 +23,8 @@ public class Main {
                     try{
                         System.out.println("De que asignatura quieres añadir la nota?");
                         String asignatura = sc.nextLine();
-                        int contadordatos = 0;
-                        for (String nombresAsignatura : nombresAsignaturas) {
-                            if (!nombresAsignatura.equalsIgnoreCase(asignatura)) {
-                                contadordatos++;
-                            }
-                        }
-                        if (contadordatos == nombresAsignaturas.length) {
-                            throw  new datoNoValido();
+                        if(!Arrays.asList(nombresAsignaturas).contains(asignatura)) {
+                            throw new datoNoValido();
                         }
                         System.out.println("Dime la nota de la asignatura:");
                         int nota = sc.nextInt();
