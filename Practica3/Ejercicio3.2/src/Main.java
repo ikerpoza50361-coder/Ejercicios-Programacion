@@ -70,16 +70,13 @@ public class Main {
         boolean error = true;
         do {
             try {
-                LinkedList <LocalDate> fechasBorrar = new LinkedList<>(fechas);
                 System.out.println("Dime la fecha que maxima de caducidad: ");
                 String fecha = sc.nextLine();
                 LocalDate fechaCaducidad = LocalDate.parse(fecha, dtf);
                 error = false;
-                for (LocalDate fechaProducto : fechas) {
-                    if (fechaProducto.isBefore(fechaCaducidad)) {
-                        fechasBorrar.remove();
-                        productos.remove();
-                    }
+                while (!fechas.isEmpty() && fechas.peek().isBefore(fechaCaducidad)) {
+                    productos.remove();
+                    fechas.remove();
                 }
             } catch (DateTimeParseException e) {
                 System.out.println("La fecha introducida no es valida, vuelve a intentarlo");
