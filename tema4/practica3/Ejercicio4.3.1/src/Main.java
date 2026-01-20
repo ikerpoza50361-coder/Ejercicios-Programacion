@@ -39,33 +39,94 @@ public class Main {
         alumnos.add(new Alumno("España",LocalDate.of(2004,12,1),"Alumno4","123A", librosA4));
     }
     public static void menu(){
-        System.out.print("""
-               --- Menu Biblioteca ---
-               1. Alquiler Libro
-               2. Devolver Libro
-               3. Ver datos disponibles
-               4. Salir""");
-        int respuesta = sc.nextInt();
-        switch(respuesta){
-            case 1:
-                alquilarLibro();
-            break;
-            case 2:
-                devolverLibro();
-            break;
-            case 3:
-                datos();
-            break;
-            case 4:
-                finalizar();
-            break;
-        }
+        boolean continuar = true;
+        do {
+            System.out.print("""
+                    --- Menu Biblioteca ---
+                    1. Alquiler Libro
+                    2. Devolver Libro
+                    3. Ver datos disponibles
+                    4. Salir
+                    """);
+            int respuesta = sc.nextInt();
+            switch (respuesta) {
+                case 1:
+                    sc.nextLine();
+                    alquilarLibro();
+                    break;
+                case 2:
+                    sc.nextLine();
+                    devolverLibro();
+                    break;
+                case 3:
+
+                    break;
+                case 4:
+
+                    break;
+            }
+        }while (continuar);
     }
     public static void alquilarLibro(){
-        System.out.println("Dime el nombre del alumno:");
-        String nombre = sc.nextLine();
-        System.out.println("Dime el libro que quieres alquilar:");
-        String libro = sc.nextLine();
+        int posicionLibro = 0;
+        int posicionAlumno = 0;
+        boolean error = true;
+        do {
+            try {
+                System.out.println("Dime el nombre del alumno:");
+                String nombre = sc.nextLine();
+                System.out.println("Dime el libro que quieres alquilar:");
+                String libro = sc.nextLine();
+                for (int i = 0; i < alumnos.size(); i++) {
+                    if(alumnos.get(i).getNombre().equalsIgnoreCase(nombre)){
+                        posicionAlumno = i;
+                        for (int x = 0; x < libros.size(); x++) {
+                            if (libros.get(x).getTitulo().equalsIgnoreCase(libro)) {
+                                error = false;
+                                posicionLibro = x;
+                            }
+                        }
+                    }
+                }
+                if (error) {
+                    throw new DatoNoValido();
+                }
+            }catch(DatoNoValido e){
+                System.out.println("El nombre del alumno o el libro no existe");
+            }
+        }while (error);
 
+        libros.get(posicionLibro).alquilar(alumnos.get(posicionAlumno));
+    }
+    public static void devolverLibro(){
+        int posicionLibro = 0;
+        int posicionAlumno = 0;
+        boolean error = true;
+        do {
+            try {
+                System.out.println("Dime el nombre del alumno:");
+                String nombre = sc.nextLine();
+                System.out.println("Dime el libro que quieres devolver:");
+                String libro = sc.nextLine();
+                for (int i = 0; i < alumnos.size(); i++) {
+                    if(alumnos.get(i).getNombre().equalsIgnoreCase(nombre)){
+                        posicionAlumno = i;
+                        for (int x = 0; x < libros.size(); x++) {
+                            if (libros.get(x).getTitulo().equalsIgnoreCase(libro)) {
+                                error = false;
+                                posicionLibro = x;
+                            }
+                        }
+                    }
+                }
+                if (error) {
+                    throw new DatoNoValido();
+                }
+            }catch(DatoNoValido e){
+                System.out.println("El nombre del alumno o el libro no existe");
+            }
+        }while (error);
+
+        alumnos.get(posicionAlumno).devolver(libros.get(posicionLibro));
     }
 }

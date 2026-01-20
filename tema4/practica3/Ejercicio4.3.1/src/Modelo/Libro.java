@@ -55,12 +55,17 @@ public class Libro {
         this.autor = autor;
     }
 
-    public void modificar(int opcion) {
-        if (opcion == 1) {
+    public void alquilar(Alumno alumno){
+        if (this.numeroEjemplares>0){
             numeroEjemplares--;
-        }else if (opcion == 2) {
-            numeroEjemplares++;
+            alumno.alquilar(this);
+        }else {
+            System.out.println("Este libro no tiene mas ejemplares.");
         }
+    }
+
+    public void devolver (Alumno alumno){
+        numeroEjemplares++;
     }
 
     public String mostrar(){

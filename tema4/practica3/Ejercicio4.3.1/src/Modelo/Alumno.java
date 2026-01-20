@@ -30,10 +30,31 @@ public class Alumno extends Persona{
     }
 
     public void alquilar(Libro libro){
-        librosAlquilados.add(libro);
+        if(librosAlquilados.size()<3){
+            librosAlquilados.add(libro);
+            System.out.println("El alumno "+getNombre()+" a alquilado el libro "+libro.getTitulo());
+        }else {
+            System.out.println("El alumno no puede alquilar mas libros");
+        }
     }
 
     public void devolver (Libro libro){
-        librosAlquilados.remove(libro);
+        int posicionLibro = 0;
+        boolean cont = false;
+        if (!librosAlquilados.isEmpty()){
+            for (int i = 0; i<librosAlquilados.size(); i++){
+                if(librosAlquilados.get(i).getTitulo().equals(libro.getTitulo())){
+                    posicionLibro = i;
+                    System.out.println("El libro alquilado "+librosAlquilados.get(i).getTitulo()+" se ha devuelto");
+                    libro.devolver(this);
+                    cont = true;
+                }
+            }
+            librosAlquilados.remove(posicionLibro);
+        }
+
+        if(!cont){
+            System.out.println("El libro "+libro.getTitulo()+" no lo tiene el "+getNombre()+" alquilado");
+        }
     }
 }
