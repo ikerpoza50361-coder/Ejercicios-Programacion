@@ -36,8 +36,7 @@ public class Main {
                 error = false;
                 if(opcion.equalsIgnoreCase("no")){
                     continuar = false;
-                }else if(opcion.equalsIgnoreCase("si")){
-                }else {
+                }else if(!opcion.equalsIgnoreCase("si")){
                     System.out.println("La respuesta no es correcta, vuelve a intentarlo");
                     error = true;
                 }
@@ -63,8 +62,7 @@ public class Main {
                 error = false;
                 if(opcion.equalsIgnoreCase("no")){
                     continuar = false;
-                }else if(opcion.equalsIgnoreCase("si")){
-                }else {
+                }else if(!opcion.equalsIgnoreCase("si")){
                     System.out.println("La respuesta no es correcta, vuelve a intentarlo");
                     error = true;
                 }
@@ -132,8 +130,7 @@ public class Main {
                 error = false;
                 if(opcion.equalsIgnoreCase("no")){
                     continuar = false;
-                }else if(opcion.equalsIgnoreCase("si")){
-                }else {
+                }else if(!opcion.equalsIgnoreCase("si")){
                     System.out.println("La respuesta no es correcta, vuelve a intentarlo");
                     error = true;
                 }
