@@ -23,8 +23,8 @@ public class Main {
             continuar = true;
             listaVeterinarios.add(new Veterinario(
                     solicitarDato("Nombre","Introduce el nombre:","^[a-z]+$"),
-                    solicitarDato("Direccion","Introduce la direccion:","^[a-z]+$"),
-                    solicitarDato("Telefono","Introduce el telefono:","^[0-9]{9}$"),
+                    solicitarDato("Dirección","Introduce la dirección:","^[a-z]+$"),
+                    solicitarDato("Teléfono","Introduce el teléfono:","^[0-9]{9}$"),
                     solicitarDato("DNI","Introduce el DNI","^[0-9]{8}[a-z]$"),
                     solicitarDato("Numero Seguridad Social", "Introduce el numero seguridad social","^[0-9]+$")
             ));
@@ -51,8 +51,8 @@ public class Main {
             continuar = true;
             listaClientes.add(new Cliente(
                     solicitarDato("Nombre","Introduce el nombre:","^[a-z]+$"),
-                    solicitarDato("Direccion","Introduce la direccion:","^[a-z]+$"),
-                    solicitarDato("Telefono","Introduce el telefono:","^[0-9]{9}$")
+                    solicitarDato("Dirección","Introduce la dirección:","^[a-z]+$"),
+                    solicitarDato("Teléfono","Introduce el teléfono:","^[0-9]{9}$")
             ));
 
             boolean error;
